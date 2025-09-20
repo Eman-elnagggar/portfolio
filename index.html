@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eman El-Naggar | Portfolio</title>
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --accent:#ff8fa0;
+      --muted:#9aa0a6;
+      --org:#4dd0e1;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, Arial, Helvetica, sans-serif;background:var(--bg);color:#e6e6e6}
+
+    nav{position:sticky;top:0;z-index:1200;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:12px;background:rgba(0,0,0,0.8);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.05)}
+    nav a{display:inline-block;padding:10px 20px;font-size:1rem;border-radius:12px;border:2px solid var(--accent);color:var(--accent);text-decoration:none;font-weight:700;letter-spacing:0.3px;transition:all 200ms ease;background:transparent}
+    nav a:hover{background:var(--accent);color:#080808;transform:translateY(-3px)}
+
+    header{min-height:50vh;background:url("background.jpg") center center/cover no-repeat,#000;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+    header::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55)}
+    header h1,header p{position:relative;z-index:1}
+    header h1{font-size:2.4rem;color:#fff;margin:0}
+    header p{margin:10px 0 0;color:#fff;font-weight:600;font-size:1.2rem}
+
+    section{padding:44px 20px;max-width:1400px;margin:40px auto}
+    h2{color:#fff;margin-top:0}
+    .card{background:#111;padding:40px;border-radius:20px;border:1px solid rgba(255,255,255,0.05)}
+
+    .button{padding:10px 14px;border-radius:8px;border:2px solid var(--accent);color:var(--accent);text-decoration:none;display:inline-block;font-weight:600;transition:all 200ms ease;margin-top:12px}
+    .button:hover{background:var(--accent);color:#080808}
+
+    .about-wrapper{display:flex;align-items:flex-start;gap:30px;flex-wrap:wrap;min-height:400px}
+    .about-photo{width:280px;height:280px;object-fit:cover;border-radius:50%;border:5px solid var(--accent);flex-shrink:0}
+    .about-text{flex:1;min-width:280px;font-size:1.2rem;line-height:1.8}
+
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+    .edu-block{background:#1a1a1a;border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .edu-block img{max-width:100px;margin-bottom:16px;border-radius:12px}
+    .organization{color:var(--org);font-weight:700;display:block;margin-bottom:8px}
+
+    .training-flex{display:flex;align-items:flex-start;gap:30px;flex-wrap:wrap}
+    .training-photo{max-width:180px;border-radius:12px;flex-shrink:0}
+    .training-text{flex:1;font-size:1rem;line-height:1.6}
+
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex-wrap:wrap}
+    .skills-block{background:#1a1a1a;border-radius:16px;padding:20px}
+    .skills-block h3{color:var(--org);margin-top:0;margin-bottom:12px}
+    .skills-block ul{list-style:disc;padding-left:20px;margin:0}
+    .skills-block ul li{margin-bottom:8px;color:#fff}
+    .skills-block ul li::marker{color:var(--accent)}
+
+    .projects-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;flex-wrap:wrap}
+    .project-block{background:#1a1a1a;border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .project-block img{max-width:120px;margin-bottom:16px;border-radius:12px}
+
+    .projects-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start;flex-wrap:wrap}
+    .project-block-large{background:#1a1a1a;border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .project-block-large img{width:100%;height:140px;object-fit:cover;margin-bottom:16px;border-radius:12px}
+    .project-block-large span,.project-block span{display:block;margin-bottom:12px}
+
+    .contact-sections{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:30px}
+    .contact-item{text-align:center}
+    .contact-item img{width:50px;height:50px;object-fit:contain;display:block;margin:0 auto 12px;filter:invert(1)}
+    .contact-item a{color:var(--accent);text-decoration:none;font-weight:600;display:block;margin-bottom:8px;word-wrap:break-word}
+
+    footer{padding:26px;text-align:center;color:var(--muted);background:transparent}
+
+    @media(max-width:900px){
+      .edu-grid{grid-template-columns:1fr}
+      .projects-grid-2{grid-template-columns:1fr}
+      .projects-grid-4{grid-template-columns:1fr 1fr}
+      .skills-grid{grid-template-columns:1fr}
+      .contact-sections{grid-template-columns:1fr}
+      nav{flex-direction:column;align-items:center}
+      nav a{width:100%;text-align:center}
+    }
+    @media(max-width:500px){
+      .projects-grid-4{grid-template-columns:1fr}
+      .about-wrapper{flex-direction:column;align-items:center}
+      .about-photo{width:200px;height:200px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#education">Education</a>
+    <a href="#training">Training</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <div>
+      <h1>Eman Yasser El-Naggar</h1>
+      <p>Machine Learning Engineer — passionate about AI, data, and building useful models</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card about-wrapper">
+      <img src="my_photo.jpg" alt="My Photo" class="about-photo">
+      <div class="about-text">
+        <p>Have a strong passion for the field of data, especially in machine learning and AI. Has the ability to process data and extract key insights to support accurate decision-making. I believe in the importance of precision and am committed to delivering high-quality work and outstanding results that reflect the value of what I do.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card edu-grid">
+      <div class="edu-block">
+        <img src="uni.jpg" alt="University Logo">
+        <span class="organization">Damietta University:</span>
+        <span>Medical Informatics (2022 - present) | GPA: 3.68</span>
+      </div>
+      <div class="edu-block">
+        <img src="depi.jpg" alt="DEPI Logo">
+        <span class="organization">Digital Egypt Pioneers (DEPI):</span>
+        <span>Microsoft ML Engineering Track, Jun 2025 - present</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="training">
+    <h2>Training</h2>
+    <div class="card training-flex">
+      <img src="gtc.jpg" alt="GTC Logo" class="training-photo">
+      <div class="training-text">
+        <span class="organization">GTC (Genius Technology Center):</span><br>
+        <span>Summer training Machine Learning track, Sep 2025 - now</span><br><br>
+        <span>It is a month of training with hands-on practical projects on main machine concepts. Data cleaning, Supervised and Unsupervised machine learning.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card skills-grid">
+      <div class="skills-block">
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>Python, C++</li>
+          <li>Pandas, Matplotlib, Seaborn, Sklearn</li>
+          <li>Git and GitHub</li>
+          <li>Excel, Power BI</li>
+        </ul>
+      </div>
+      <div class="skills-block">
+        <h3>Soft Skills</h3>
+        <ul>
+          <li>Problem Solving</li>
+          <li>Teamwork &amp; Leadership</li>
+          <li>Communication</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <h3>Full Projects</h3>
+    <div class="card projects-grid-2">
+      <div class="project-block">
+        <img src="breast_cancer.jpg" alt="Breast Cancer Project">
+        <span class="organization">Breast Cancer Analytics</span>
+        <span>Analyze two datasets, one for patients' insights and the other for disease cells' characteristics, and successfully achieve 97% accuracy.</span>
+        <a href="https://github.com/Eman-elnagggar/Breast-Cancer-Analytics" target="_blank" class="button">View Project on GitHub</a>
+      </div>
+      <div class="project-block">
+        <img src="bracelet.jpg" alt="Smart Bracelet Project">
+        <span class="organization">Smart Bracelet for Deaf People</span>
+        <span>An IoT + ML project that classifies three important sounds (fire alarm, baby cry, car horn) for deaf people and alerts via vibration, with the ability to see sound type through an app.</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top:50px">ML Models</h3>
+    <div class="card projects-grid-4">
+      <div class="project-block-large">
+        <img src="car_price.jpg" alt="Car Prices Prediction">
+        <span class="organization">Car Prices Prediction</span>
+        <span>It is an ML model (regression) that takes car features, such as its model, category, manufacturer, and other key features, to predict the car price.</span>
+        <a href="https://github.com/Eman-elnagggar/Supervised-Machine-Learning-Projects/tree/main/regression/Car%20Price" target="_blank" class="button">View Project on GitHub</a>
+      </div>
+      <div class="project-block-large">
+        <img src="california_price.jpg" alt="California House Prices Prediction">
+        <span class="organization">California House Prices Prediction</span>
+        <span>It is an ML model (regression) that takes California house features, such as its square footage, number of rooms, and other key features, to predict the house price.</span>
+        <a href="https://github.com/Eman-elnagggar/GTC-Internship-Projects/tree/main/California_housing_price" target="_blank" class="button">View Project on GitHub</a>
+      </div>
+      <div class="project-block-large">
+        <img src="diabetes.jpg" alt="Diabetes Prediction">
+        <span class="organization">Diabetes Prediction</span>
+        <span>Diabetes is one of the important diseases that need an early prediction, so this classification model focuses on getting a patient's data and alerts them if they have a risk of diabetes.</span>
+        <a href="https://github.com/Eman-elnagggar/GTC-Internship-Projects/tree/main/Diabetes" target="_blank" class="button">View Project on GitHub</a>
+      </div>
+      <div class="project-block-large">
+        <img src="customer_segment.jpg" alt="Customer Segmentation">
+        <span class="organization">Customer Segmentation</span>
+        <span>Dividing customers into different categories is a common practice for stores, and this model does so by assigning each category based on some basic information about them.</span>
+        <a href="https://github.com/Eman-elnagggar/Unsupervised_Machine_learning_projects/tree/main/Customer_Segmentation" target="_blank" class="button">View Project on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card contact-sections">
+      <div class="contact-item">
+        <img src="gmail.jpg" alt="Gmail">
+        <a href="mailto:emanelnaggar.eman.2023@gmail.com" target="_blank">emanelnaggar.eman.2023@gmail.com</a>
+        <a href="mailto:emanelnaggar.2019@gmail.com" target="_blank">emanelnaggar.2019@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <img src="github.jpg" alt="GitHub">
+        <a href="https://github.com/Eman-elnagggar" target="_blank">Eman-elnagggar</a>
+      </div>
+      <div class="contact-item">
+        <img src="linkedin.jpg" alt="LinkedIn">
+        <a href="https://www.linkedin.com/in/eman-elnaggar-6529a72b8/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <small>&copy; 2025 Eman Yasser El-Naggar</small>
+  </footer>
+
+</body>
+</html>
